@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from '../user.services';
+import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-menu-bar',
@@ -16,6 +18,8 @@ import { UserService } from '../user.services';
     MatIconModule,
     RouterModule,
     MatToolbar,
+    NgIf,
+    CommonModule,
   ],
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.css']
