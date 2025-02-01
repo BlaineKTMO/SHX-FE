@@ -1,9 +1,11 @@
 // menu-bar.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserService } from '../user.services';
 
 @Component({
   selector: 'app-menu-bar',
@@ -18,4 +20,17 @@ import { RouterModule } from '@angular/router';
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.css']
 })
-export class MenuBarComponent {}
+export class MenuBarComponent implements OnInit {
+  username$: Observable<string>;
+
+  constructor(private userService: UserService) {
+    this.username$ = this.userService.currentUsername;
+  }
+
+  ngOnInit() {}
+
+  logout() {
+    this.userService.clearUsername();
+    // Add any additional logout logic here
+  }
+}

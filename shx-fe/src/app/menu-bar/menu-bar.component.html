@@ -13,7 +13,17 @@
 
       <a mat-button routerLink="/services" routerLinkActive="active">
         <mat-icon>miscellaneous_services</mat-icon>
-        Services
+        services
       </a>
+
+    <!-- User Section -->
+    <div class="user-section" *ngIf="username$ | async as username">
+        <span class="username">Welcome, {{ username }}</span>
+        <button mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </div>
+  
     </div>
   </mat-toolbar>

@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { User } from '../model/User';
+import { UserService } from '../user.services';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -27,11 +28,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./signin.component.css']
 })
 export class SignInComponent {
+  user: User = {} as User;
 
   constructor(
     private router: Router,
     private api: ApiService,
-    private user: User,
+    private userService: UserService
   )
   {}
 
@@ -45,9 +47,10 @@ export class SignInComponent {
     console.log('Sign-in attempt:', this.credentials);
     // Add authentication logic here
 
+
     // Example API call
 
-    this.api.post<User>('api/signin', this.credentials).subscribe((response) => {
+    this.api.post<User>('api/users/search', this.credentials).subscribe((response) => {
       console.log('Response:', response);
       
       // Store user in session
@@ -59,5 +62,6 @@ export class SignInComponent {
 
     // Store the user in session
     sessionStorage.setItem('user', JSON.stringify(this.user.username));
+    this.userService.setUsername(this.user.username);
   }
 }
