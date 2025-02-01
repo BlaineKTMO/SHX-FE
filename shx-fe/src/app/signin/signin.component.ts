@@ -31,6 +31,7 @@ export class SignInComponent {
   constructor(
     private router: Router,
     private api: ApiService,
+    private user: User,
   )
   {}
 
@@ -44,15 +45,19 @@ export class SignInComponent {
     console.log('Sign-in attempt:', this.credentials);
     // Add authentication logic here
 
-    this.api.post('api/signin', this.credentials).subscribe((response) => {
-      console.log('Response:', response);
+    // Example API call
 
-      this.api.post('/login', this.credentials).subscribe((response : Observable<User>) => {
-        id = response.user.id;
-      });
+    this.api.post<User>('api/signin', this.credentials).subscribe((response) => {
+      console.log('Response:', response);
+      
+      // Store user in session
+      this.user = response;
 
       // Redirect to home
       this.router.navigate(['/home']);
     })
+
+    // Store the user in session
+    sessionStorage.setItem('user', JSON.stringify(this.user.username));
   }
 }
