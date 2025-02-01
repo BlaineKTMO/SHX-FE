@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-services',
+  standalone: true,
   imports: [
     RouterModule,
   ],
