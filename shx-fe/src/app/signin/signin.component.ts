@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { User } from '../model/User';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
@@ -44,6 +46,11 @@ export class SignInComponent {
 
     this.api.post('api/signin', this.credentials).subscribe((response) => {
       console.log('Response:', response);
+
+      this.api.post('/login', this.credentials).subscribe((response : Observable<User>) => {
+        id = response.user.id;
+      });
+
       // Redirect to home
       this.router.navigate(['/home']);
     })
