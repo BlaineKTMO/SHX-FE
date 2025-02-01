@@ -1,0 +1,19 @@
+/* home.component.css */
+.home {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #1976d2;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
+  
+  .cta-button:hover {
+    background: #1565c0;
+  }
