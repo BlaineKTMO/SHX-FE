@@ -29,4 +29,8 @@
   </div>
 </mat-toolbar>
 
+<div *ngIf="username$ | async as username">
+  <app-image-display></app-image-display>
+</div>
+
 <router-outlet></router-outlet>
