@@ -54,14 +54,20 @@ export class SignInComponent {
       console.log('Response:', response);
       
       // Store user in session
-      this.user = response;
+      this.user.username = response.username;
+      console.log('User:', this.user);
+      
+      // Store the user in session
+      sessionStorage.setItem('user', JSON.stringify(this.user.username));
+      this.userService.setUsername(this.user.username);
 
       // Redirect to home
       this.router.navigate(['/home']);
-    })
+    },
+      (error) => {
+        console.error('API error:', error);
+      }
+    )
 
-    // Store the user in session
-    sessionStorage.setItem('user', JSON.stringify(this.user.username));
-    this.userService.setUsername(this.user.username);
   }
 }
