@@ -25,6 +25,6 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
   private username: string;
   constructor() {
-    this.username = sessionStorage.getItem('username');
+    this.username = sessionStorage.getItem('username') || '';
   }
 }
