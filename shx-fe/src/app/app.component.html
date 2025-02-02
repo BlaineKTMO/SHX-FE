@@ -1,8 +1,32 @@
 <!-- app.component.html -->
-<mat-toolbar color="primary">
-    <span>FedNet.ai</span>
-    <nav>
-    </nav>
-  </mat-toolbar>
-  
-  <router-outlet></router-outlet>
+<mat-toolbar color="primary" class="main-header">
+  <div class="toolbar-content">
+    <div class="left-section">
+      <button mat-icon-button aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="brand">
+        <mat-icon class="brand-icon">cloud</mat-icon>
+        FedNet.ai
+      </span>
+    </div>
+
+    <div class="right-section">
+      <nav>
+        <a mat-button routerLink="/home" class="nav-link">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </a>
+        <a mat-button routerLink="/dashboard" class="nav-link">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <button mat-icon-button class="user-menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </nav>
+    </div>
+  </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

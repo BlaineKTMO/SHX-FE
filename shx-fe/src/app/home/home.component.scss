@@ -1,19 +1,22 @@
 /* home.component.css */
 .home {
-    text-align: center;
-    padding: 2rem;
-  }
+  text-align: center;
+  padding: 2rem;
+  background: hsl(330, 100%, 98%);
+  min-height: 100vh; /* Ensures it covers the viewport height */
+}
   
   .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: #1976d2;
-    color: white;
+    background: #000000;
+    color: rgb(2, 2, 2);
     text-decoration: none;
     border-radius: 4px;
     margin-top: 1rem;
   }
   
-  .cta-button:hover {
-    background: #1565c0;
+  .cta-button {
+    background: #000000;
+    color: white; /* Change to a visible color */
   }
